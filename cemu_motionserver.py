@@ -13,9 +13,9 @@ class Controller:
         self.connectionType = connType
         self.macAddress = macAddress
         self.battery = battery
-        self.gyroX = 0
+        self.gyroP = 0
         self.gyroY = 0
-        self.gyroZ = 0
+        self.gyroR = 0
         self.accelX = 0
         self.accelY = 0
         self.accelZ = 0
@@ -223,11 +223,11 @@ class Packet:
             struct.pack_into('<f', out, 68, cList[self.registrationId].accelZ)
 
             # gyro x
-            struct.pack_into('<f', out, 72, cList[self.registrationId].gyroX)
+            struct.pack_into('<f', out, 72, cList[self.registrationId].gyroP)
             # gyro y
             struct.pack_into('<f', out, 76, cList[self.registrationId].gyroY)
             # gyro z
-            struct.pack_into('<f', out, 80, cList[self.registrationId].gyroZ)
+            struct.pack_into('<f', out, 80, cList[self.registrationId].gyroR)
 
             return [Packet.generate(out)]
         return []
